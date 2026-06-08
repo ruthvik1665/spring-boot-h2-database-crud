@@ -38,4 +38,8 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             pkill -f jar || true
-            nohup java -jar /opt/myapp/target/*.jar > app.log 2>&1 &
+            ls -la /opt/myapp
+            java -version
+            nohup java -jar /opt/myapp/*.jar > /opt/myapp/app.log 2>&1 &
+            sleep 10
+            cat /opt/myapp/app.log
